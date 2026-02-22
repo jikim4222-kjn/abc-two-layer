@@ -20,10 +20,8 @@ paper/      – Official PDF, TeX source
 
 ## 🔗 Citation
 
-If you use this work, please cite the Zenodo DOI:
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18730067.svg)](https://doi.org/10.5281/zenodo.18730067)
 ---
-
 ## 📜 License
 
 This repository is released for academic use and further research development.
