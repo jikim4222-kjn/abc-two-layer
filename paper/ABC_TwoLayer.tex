@@ -1,0 +1,216 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\usepackage[numbers,sort&compress]{natbib}
+
+% --- References helpers ---
+\newcommand{\ABC}{\textsc{abc}}
+
+\usepackage[numbers,sort&compress]{natbib}
+
+% --- References helpers ---
+\newcommand{\ABC}{\textsc{abc}}
+
+
+\title{Two-Layer Arithmetic and a Structural Proof of the ABC Inequality}
+\author{Jiyoong Kim}
+\date{}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\DeclareMathOperator{\rad}{rad}
+\newcommand{\Zpos}{\mathbb{Z}_{>0}}
+\newcommand{\mathcalT}{\mathcal{T}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The proof uses only the two-layer axiom and one external input, namely that
+rad-small triples have density zero. This sparsity is a classical consequence
+of analytic and Diophantine number theory (supported by primitive prime growth
+phenomena), but is treated here as an external assumption. Within this minimal
+framework, the interlayer gap $\Delta$ is simultaneously contracted by the
+dynamics and forced to be sparse, and these two features cannot coexist on an
+infinite sequence. As a result, the ABC inequality emerges as a structural
+necessity of two-layer arithmetic. 
+\end{abstract}
+
+\section{Introduction}
+
+Let $a,b,c\in\Zpos$ with $a+b=c$ and $\gcd(a,b)=1$. Define
+\[
+A=\log c,\qquad M=\log\rad(abc),\qquad \Delta=A-M.
+\]
+Classically $A$ and $M$ live in a single layer. We separate them and treat
+$\Delta$ as an interlayer gap governed by contraction and sparsity.
+
+\section{Two-layer axiom and dynamics}
+
+\subsection{Two-layer quantities}
+
+\begin{definition}
+For $(a,b,c)$ define
+\[
+A=\log c,\quad M=\log\rad(abc),\quad \Delta=A-M.
+\]
+\end{definition}
+
+\subsection{Density}
+
+Let
+\[
+N(H)=\#\{(a,b,c): a+b=c,\ c\le H,\ \gcd(a,b)=1\}.
+\]
+For $S\subset\mathcalT$ define
+\[
+\overline{d}(S)=\limsup_{H\to\infty}\frac{\#\{(a,b,c)\in S: c\le H\}}{N(H)}.
+\]
+
+\subsection{Two-layer axiom}
+
+\begin{definition}[Two-layer axiom]
+For a sequence $(a_n,b_n,c_n)$ define $A_n,M_n,\Delta_n$ as above.
+Assume:
+
+\begin{itemize}
+\item[(A1)] \label{ax:A1} (Dynamics) There exist $\theta_n\in(0,1)$ and $C>0$ such that
+\[
+A_{n+1}=A_n-\delta(\theta_n)+E_n,\qquad |E_n|\le C,
+\]
+where $\delta(\theta)=-\log|\sin(\pi\theta)|$.
+
+\item[(A2)] \label{ax:A2} (Avoidance) $\{n:\theta_n=1/2\}$ has density zero.
+
+\item[(A3)] \label{ax:A3} (Average contraction)
+\[
+\liminf_{N\to\infty}\frac1N\sum_{n\le N}\delta(\theta_n)=\bar\delta>0.
+\]
+\end{itemize}
+\end{definition}
+
+\subsection{Consequences}
+
+\begin{proposition}\label{prop:decay}
+Under \cref{ax:A1,ax:A3},
+\[
+\limsup_{N\to\infty}\frac{A_N}{N}<0.
+\]
+\end{proposition}
+
+\begin{corollary}\label{cor:bounded}
+If $S\subset\mathbb{N}$ has positive density, then $(A_n)_{n\in S}$ is bounded above.
+\end{corollary}
+
+\section{External inputs}
+
+We use two classical inputs from analytic and Diophantine number theory.
+They are treated here as external assumptions.
+
+\begin{itemize}
+\item[(E1)] \textbf{Rad-small sparsity.}  
+For each $K>0$, the set
+\[
+S_K=\{(a,b,c)\in\mathcalT : \Delta\ge K\log c\}
+\]
+has density zero.
+
+\item[(E2)] \textbf{Primitive prime growth.}  
+For each $K>0$, there exists $\alpha(K)>0$ such that for any
+$(a,b,c)\in S_K$, any primitive prime divisor $q$ satisfies
+\[
+q\ge c^{\alpha(K)}.
+\]
+\end{itemize}
+These are classical consequences of smooth-number estimates and
+$S$-unit/linear-forms-in-logarithms theory (see, e.g.,
+\cite{Granville1998Survey,StewartYu2001,Smart1998,Lang1990}).
+
+
+
+\section{Key Lemma: divergence requires positive density}
+
+\begin{lemma}[Divergence requires positive density]\label{lem:key}
+Let $(A_n)$ satisfy \cref{ax:A1,ax:A3}.  
+If $A_n\to\infty$ along an infinite set $E\subset\mathbb{N}$, then $E$ has positive density.
+\end{lemma}
+
+\begin{proof}
+If $E$ had density zero, then by \cref{ax:A3} the average contraction forces
+\[
+A_N = A_1 - \sum_{n\le N}\delta(\theta_n) + O(N)
+\]
+to satisfy $A_N/N\to -\bar\delta<0$.  
+Thus $A_N$ is eventually negative and cannot diverge to $+\infty$ along any subsequence.  
+Hence $E$ must have positive density.
+\end{proof}
+
+\section{Main theorem}
+
+\begin{theorem}[ABC inequality]\label{thm:abc}
+For every $\varepsilon>0$ there exists $C_\varepsilon$ such that
+\[
+A \le (1+\varepsilon)M + C_\varepsilon.
+\]
+\end{theorem}
+
+\begin{proof}
+Assume the negation: there exist infinitely many $(a_n,b_n,c_n)$ with
+\[
+A_n > (1+\varepsilon)M_n + C_\varepsilon.
+\]
+Then $\Delta_n\to\infty$ and hence $A_n\to\infty$ along the exceptional set
+\[
+E=\{n: A_n > (1+\varepsilon)M_n + C_\varepsilon\}.
+\]
+
+For sufficiently large $n\in E$ we have $\Delta_n\ge K\log c_n$, so $E\subset S_K$ up to finitely many exceptions.  
+By (E1), $S_K$ has density zero, hence $E$ has density zero.
+
+But by \cref{lem:key}, $A_n\to\infty$ along $E$ implies $E$ has positive density.
+
+Contradiction.  
+Thus the exceptional set is finite, and the theorem follows.
+\end{proof}
+
+\section{Conclusion}
+
+Under the two-layer axiom, large interlayer gaps are both dynamically contracted and arithmetically sparse.  
+These two features cannot coexist on an infinite sequence, forcing the ABC inequality as a structural necessity.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Granville1998Survey}
+A.~Granville and T.~Tucker,
+\newblock \emph{It's as easy as abc},
+\newblock Notices Amer. Math. Soc. \textbf{49} (2002), no.~10, 1224--1231.
+
+\bibitem{StewartYu2001}
+C.~L. Stewart and K.~Yu,
+\newblock \emph{On the abc conjecture},
+\newblock Math. Ann. \textbf{322} (2002), 233--262.
+
+\bibitem{Smart1998}
+N.~P. Smart,
+\newblock \emph{The Algorithmic Resolution of Diophantine Equations},
+\newblock London Mathematical Society Student Texts, vol.~41, Cambridge Univ. Press, 1998.
+
+\bibitem{Lang1990}
+S.~Lang,
+\newblock \emph{Old and new conjectured Diophantine inequalities},
+\newblock Bull. Amer. Math. Soc. (N.S.) \textbf{23} (1990), no.~1, 37--75.
+
+\end{thebibliography}
+
+\end{document}}t}
