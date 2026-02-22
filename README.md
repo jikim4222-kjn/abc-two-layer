@@ -1,6 +1,8 @@
 # abc-two-layer
 Minimal two-layer arithmetic framework for a structural proof of the ABC inequality. Separates additive and multiplicative complexity via the interlayer gap Δ = log c − log rad(abc), showing that contraction and sparsity cannot coexist on an infinite set.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18730067.svg)](https://doi.org/10.5281/zenodo.18730067)
+
 # Two-Layer Arithmetic and a Structural Proof of the ABC Inequality
 
 This repository contains the official materials, notes, figures, and computational experiments accompanying the paper **“Two-Layer Arithmetic and a Structural Proof of the ABC Inequality.”**
@@ -19,8 +21,13 @@ These two forces cannot coexist on an infinite set, making the **ABC inequality 
 paper/      – Official PDF, TeX source
 
 ## 🔗 Citation
+## Citation
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18730067.svg)](https://doi.org/10.5281/zenodo.18730067)
+If you use this work, please cite:
+
+Kim, Jiyoong. *Two-Layer Arithmetic and a Structural Proof of the ABC Inequality*.  
+Zenodo (2026). https://doi.org/10.5281/zenodo.18730067
+
 ---
 ## 📜 License
 
